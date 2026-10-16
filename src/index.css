@@ -1,0 +1,136 @@
+:root {
+  --bg: #f3f4f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+#root { max-width: 760px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+/* ---------- Top menu ---------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding: .5rem;
+  margin-bottom: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+.tabs button {
+  flex: 1;
+  margin: 0;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+}
+.tabs button:hover { background: var(--bg); color: var(--text); }
+.tabs button.active { background: var(--primary); color: #fff; }
+
+/* ---------- Cards ---------- */
+main {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+h1 { margin: 0 0 1rem; font-size: 1.5rem; }
+h2 { font-size: 2rem; margin: 1rem 0 .25rem; }
+h3 { margin: 1rem 0 .5rem; }
+p { margin: .5rem 0; }
+
+/* ---------- Buttons ---------- */
+button {
+  font: inherit;
+  font-weight: 600;
+  margin: 0 .35rem .35rem 0;
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background .15s, transform .05s;
+}
+button:hover:not(:disabled) { background: var(--primary-dark); }
+button:active:not(:disabled) { transform: scale(.97); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, .4);
+  outline-offset: 2px;
+}
+
+/* Toggle-style buttons (font size, filters, product select) */
+button[aria-pressed] {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+button[aria-pressed]:hover:not(:disabled) { background: var(--bg); }
+button[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+button[aria-pressed="true"]:hover:not(:disabled) { background: var(--primary-dark); }
+
+/* ---------- Inputs ---------- */
+input:not([type='checkbox']), select {
+  font: inherit;
+  padding: .55rem .75rem;
+  margin: .25rem .5rem .5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+input[type='checkbox'] { width: 1.1rem; height: 1.1rem; margin-right: .5rem; vertical-align: middle; }
+label { font-weight: 600; font-size: .9rem; }
+input[aria-invalid='true'] { border-color: var(--danger); background: #fef2f2; }
+form div { margin-bottom: .75rem; }
+form div input { width: 100%; }
+.error { color: var(--danger); font-size: .85rem; margin: 0; }
+
+/* ---------- Lists ---------- */
+ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem .75rem;
+  border-bottom: 1px solid var(--border);
+}
+li:last-child { border-bottom: none; }
+li:hover { background: var(--bg); }
+li > button:last-child:not(:only-child) {
+  margin: 0 0 0 auto;
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+li > button:last-child:not(:only-child):hover:not(:disabled) {
+  background: var(--danger);
+  color: #fff;
+}
+li label { font-weight: 400; font-size: 1rem; flex: 1; }
+li button[aria-pressed] { margin: 0; padding: .25rem .6rem; }
+
+/* ---------- Exam 4 ---------- */
+article { border-radius: var(--radius); margin-top: 1rem; }
